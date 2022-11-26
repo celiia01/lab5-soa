@@ -54,7 +54,6 @@ class Router(meterRegistry: MeterRegistry) : RouteBuilder() {
                     ?.let{count ->
                         exchange.getIn().setHeader("count",count)
                 }
-
             }
             .toD("twitter-search:\${header.keywords}?count=\${header.count}")
             .wireTap(LOG_ROUTE)
